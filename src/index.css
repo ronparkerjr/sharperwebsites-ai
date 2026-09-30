@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Swoosh underline animation */
+.swoosh-path {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: swoosh-draw 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards, swoosh-repeat 4s ease-in-out 1.2s infinite;
+}
+
+@keyframes swoosh-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes swoosh-repeat {
+  0%   { stroke-dashoffset: 0; opacity: 1; }
+  40%  { stroke-dashoffset: 0; opacity: 1; }
+  55%  { stroke-dashoffset: 300; opacity: 0.2; }
+  60%  { stroke-dashoffset: 300; opacity: 0; }
+  65%  { stroke-dashoffset: 300; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
+}
+
+@layer base {
+
+  :root {
+    /* Brand Colors — Navy + Electric Blue */
+    --background: 210 30% 98%;
+    --foreground: 215 50% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 50% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 50% 10%;
+
+    /* Deep Navy */
+    --primary: 214 64% 14%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Electric Blue */
+    --accent: 211 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --secondary: 210 30% 94%;
+    --secondary-foreground: 215 50% 10%;
+
+    --muted: 210 25% 94%;
+    --muted-foreground: 215 20% 45%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 211 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --navy: 214 64% 14%;
+    --navy-dark: 214 70% 8%;
+    --navy-mid: 214 55% 20%;
+    --electric: 211 100% 50%;
+    --electric-light: 211 100% 60%;
+    --electric-glow: 211 100% 50%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(214 70% 8%) 0%, hsl(214 64% 14%) 50%, hsl(214 55% 20%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(211 100% 45%), hsl(211 100% 60%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 30% 97%));
+
+    --shadow-sm: 0 2px 8px rgba(0, 90, 200, 0.08);
+    --shadow-md: 0 8px 30px rgba(0, 90, 200, 0.12);
+    --shadow-lg: 0 20px 60px rgba(0, 90, 200, 0.18);
+    --shadow-glow: 0 0 40px rgba(0, 120, 255, 0.25);
+
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-electric {
+    color: hsl(var(--electric));
+  }
+
+  .bg-electric {
+    background-color: hsl(var(--electric));
+  }
+
+  .bg-navy {
+    background-color: hsl(var(--navy));
+  }
+
+  .bg-navy-dark {
+    background-color: hsl(var(--navy-dark));
+  }
+
+  .bg-navy-mid {
+    background-color: hsl(var(--navy-mid));
+  }
+
+  .bg-electric-light {
+    background-color: hsl(var(--electric-light));
+  }
+
+  .hover\:bg-electric-light:hover {
+    background-color: hsl(var(--electric-light));
+  }
+
+  .hover\:bg-navy-mid:hover {
+    background-color: hsl(var(--navy-mid));
+  }
+
+  .text-navy {
+    color: hsl(var(--navy));
+  }
+
+  .hover\:text-electric:hover {
+    color: hsl(var(--electric));
+  }
+
+  .text-electric-light {
+    color: hsl(var(--electric-light));
+  }
+
+  .hover\:text-electric-light:hover {
+    color: hsl(var(--electric-light));
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+  .bg-gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .border-electric {
+    border-color: hsl(var(--electric));
+  }
+
+  .text-gradient {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-hover {
+    transition: var(--transition-smooth);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(0, 120, 255, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(0, 120, 255, 0.6); }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+}
