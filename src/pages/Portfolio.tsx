@@ -6,6 +6,12 @@ import { Phone, X, ChevronLeft, ChevronRight, ZoomIn, ExternalLink } from "lucid
 // Duplicate of the images from PortfolioSection so they can be edited independently
 const galleryImages = [
   {
+    src: "/vortexwaterpros.jpg",
+    alt: "Vortex Water Pros water treatment website design",
+    label: "Vortex Water Pros",
+    url: "https://vortexwaterpros.com/",
+  },
+  {
     src: "https://vibe.filesafe.space/1776947140561926129/attachments/d30a544e-9a7f-406a-8361-61559fe1acfd.png",
     alt: "Columbus Masonry website design",
     label: "Columbus Masonry",
